@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Button from "../../components/Button";
@@ -112,12 +110,12 @@ export default function DetailPage({ detailPage, id }) {
             <hr />
 
             <h6>Get Ticket</h6>
-            {detailPage.tickets.map((ticket) => (
-              <>
+            {detailPage.tickets.map((ticket, index) => (
+              <div key={index}>
                 {ticket.statusTicketCategories ? (
                   <>
                     <div className="price my-3">
-                      {ticket.price === 0 ? "free" : `$${ticket.price}`}
+                      {ticket.price === 0 ? "Free" : `Rp. ${ticket.price}`}
                       <span>/person</span>
                     </div>
                     <div className="d-flex gap-3 align-items-center card-details">
@@ -147,7 +145,7 @@ export default function DetailPage({ detailPage, id }) {
                 ) : (
                   ""
                 )}
-              </>
+              </div>
             ))}
           </div>
         </div>
@@ -165,7 +163,6 @@ export async function getServerSideProps(context) {
   const req = await getData(`api/v1/events/${context.params.id}`);
 
   const res = req.data;
-  console.log(res);
 
   return {
     props: { detailPage: res, id: context.params.id },

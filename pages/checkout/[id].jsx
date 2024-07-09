@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import moment from "moment";
 import Head from "next/head";
 import Footer from "../../components/Footer";
@@ -55,7 +54,7 @@ export default function Checkout({ detailPage }) {
                   {ticket._id === ticketId
                     ? ticket.price === 0
                       ? "free"
-                      : `$${ticket.price}`
+                      : `Rp. ${ticket.price}`
                     : ""}
                 </>
               ))}

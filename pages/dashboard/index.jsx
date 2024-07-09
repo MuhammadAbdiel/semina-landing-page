@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import moment from "moment";
 import Head from "next/head";
 import Footer from "../../components/Footer";
@@ -48,7 +47,7 @@ export default function Dashboard({ data }) {
                 </div>
               </div>
               <div className="total-price">
-                {data.totalPay === 0 ? "free" : `$${data.totalPay}`}
+                {data.totalPay === 0 ? "free" : `Rp. ${data.totalPay}`}
               </div>
             </div>
           ))}
@@ -63,8 +62,6 @@ export async function getServerSideProps(context) {
   const req = await getData(`/api/v1/orders`, {}, context.req.cookies.token);
 
   const res = req.data;
-
-  console.log(res);
 
   return {
     props: { data: res },

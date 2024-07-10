@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
 // import { useRouter } from 'next/router';
 
 export default function EditUsers({ user }) {
   // const router = useRouter();
-
-  // console.log(router);
-  // console.log(params);
 
   return (
     <div>
@@ -36,16 +33,12 @@ export async function getStaticPaths() {
 
 // This also gets called at buzild time
 export async function getStaticProps({ params }) {
-  // console.log('params >>');
-  // console.log(params);
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/users/${params.id}/${params.name}`
   );
   const user = await res.json();
-
-  // console.log(user);
 
   // Pass user data to the page via props
   return { props: { user } };

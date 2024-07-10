@@ -201,7 +201,7 @@ export default function FormCheckout({ tickets }) {
               <label className="payment-radio h-100 d-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center gap-4">
                   <img
-                    src={`${process.env.NEXT_PUBLIC_API_IMAGE}/${payment.imageUrl}`}
+                    src={`${process.env.NEXT_PUBLIC_API_IMAGE}/${payment.image.name}`}
                     alt=""
                   />
                   <div>{payment.type}</div>

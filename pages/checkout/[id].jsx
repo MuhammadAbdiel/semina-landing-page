@@ -49,14 +49,14 @@ export default function Checkout({ detailPage }) {
               </div>
             </div>
             <div className="total-price">
-              {detailPage.tickets.map((ticket) => (
-                <>
+              {detailPage.tickets.map((ticket, index) => (
+                <div key={index}>
                   {ticket._id === ticketId
                     ? ticket.price === 0
-                      ? "free"
+                      ? "Free"
                       : `Rp. ${ticket.price}`
                     : ""}
-                </>
+                </div>
               ))}
             </div>
           </div>
